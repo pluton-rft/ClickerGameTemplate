@@ -1,0 +1,50 @@
+namespace Clicker.Architecture {
+    public class LevelInteractor : Interactor {
+        
+        private float maxExpInLevel = 100000f;
+
+        public int level => repository.level;
+        public float experience => repository.expirience;
+
+        private LevelRepository repository;
+
+        public override void OnCreate() {
+            base.OnCreate();
+            repository = Game.GetRepository<LevelRepository>();
+        }
+
+        public override void Initialize() {
+            Level.Initialize(this);
+        }
+
+        public void AddLevel(object sender, int value) {
+            if (value >= 0) {
+                AddExperience(this, value * maxExpInLevel);
+            }
+        }
+
+        public void AddExperience(object sender, float value) {
+            if (value + GetExperienceCurrentLevel() < maxExpInLevel) {
+                repository.expirience += value;
+                repository.Save();
+            }
+            else {
+                repository.expirience += value;
+                repository.level++;
+            }
+        }
+
+        public void Reset(object sender) {
+            repository.level = 1;
+            repository.expirience = 100000f;
+            repository.Save();
+        }
+
+        private float GetExperienceCurrentLevel() {
+            float exp = experience - (level * maxExpInLevel); 
+            return exp;
+        }
+    }
+}
+
+
