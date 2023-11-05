@@ -10,7 +10,7 @@ namespace Clicker.Architecture {
 
         public override void Initialize() {
             level = PlayerPrefs.GetInt(KEY, 1);
-            expirience = PlayerPrefs.GetFloat(KEY + "exp", 100000f);
+            expirience = PlayerPrefs.GetFloat(KEY + "exp", 10000f);
         }
 
         public override void Save() {

@@ -14,14 +14,14 @@ namespace Clicker.Architecture {
             
             if (Input.GetKeyDown(KeyCode.A)) {
                 Bank.AddCoins(this, 5000);
-                Level.AddExperience(this, 100000);
+                Level.AddExperience(this, 10000f);
             }
             
             if (Input.GetKeyDown(KeyCode.R)) {
                 Bank.Reset(this); 
                 Level.Reset(this); 
                 Enemy.SpawnDefaultEnemy(this);
-                Hero.ResetActiveHeroes(this);
+                Hero.ResetHeroes(this);
             } 
         }
     }

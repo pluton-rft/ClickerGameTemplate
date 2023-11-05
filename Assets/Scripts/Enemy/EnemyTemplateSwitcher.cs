@@ -4,13 +4,13 @@ using UnityEngine;
 namespace Clicker.Architecture {
     public class EnemyTemplateSwitcher : MonoBehaviour {
 
-        [SerializeField] public EnemyListPresent enemyListPresent;
-        public List<EnemyTemplate> _allTemplates; 
-        public List<EnemyTemplate> _newBufferTemplates;
-        public List<EnemyTemplate> _bufferTemplates;
-        public EnemyTemplate _currentTemplate;
-        public int _currentLevel;
-        public int _maxLevel;
+        [SerializeField] private EnemyListPresent enemyListPresent;
+        private List<EnemyTemplate> _allTemplates; 
+        private List<EnemyTemplate> _newBufferTemplates;
+        private List<EnemyTemplate> _bufferTemplates;
+        private EnemyTemplate _currentTemplate;
+        private int _currentLevel;
+        private int _maxLevel;
 
         private void Awake() {
             Game.OnGameInitializeEvent += Initialize;
@@ -18,12 +18,7 @@ namespace Clicker.Architecture {
             Level.OnLevelChangeLevelEvent += OnLevelChanges;
         }
 
-        private void OnDisable() {
-            EnemyInteractor.EnemyKilled -= OnEnemyKilledEvent;
-            Level.OnLevelChangeLevelEvent -= OnLevelChanges;
-        }
-
-        public void Initialize() {
+        private void Initialize() {
             LoadEnemyTemplates();
             CheckMaxLevelInRangeList();
             FindPreviousAvailableTemplate();
@@ -32,18 +27,23 @@ namespace Clicker.Architecture {
             Game.OnGameInitializeEvent -= Initialize;
         }
 
+        private void OnDisable() {
+            EnemyInteractor.EnemyKilled -= OnEnemyKilledEvent;
+            Level.OnLevelChangeLevelEvent -= OnLevelChanges;
+        }
+
         private void OnLevelChanges() {
             UpdateCurrentLevel();
             AddTemplatesToBuffer();
             TryOverwriteLastBuffer();
         }
 
-        public void OnEnemyKilledEvent() {
+        private void OnEnemyKilledEvent() {
             SetRandomTemplateFromBuffer();
             ExportCurrentTemplate();
         }
 
-        public void FindPreviousAvailableTemplate() { 
+        private void FindPreviousAvailableTemplate() { 
             bool isFound = false;
             UpdateCurrentLevel();
             do {
@@ -58,7 +58,7 @@ namespace Clicker.Architecture {
             }
         }
         
-        public void FindNextAvailableTemplate() { 
+        private void FindNextAvailableTemplate() { 
             bool isFound = false;
             UpdateCurrentLevel();
             do {
@@ -69,37 +69,37 @@ namespace Clicker.Architecture {
             } while (isFound == false && _currentLevel <= _maxLevel);
         }
 
-        public void AddTemplatesToBuffer() {
-            if (_newBufferTemplates != null) _newBufferTemplates.Clear();
+        private void AddTemplatesToBuffer() {
+            _newBufferTemplates = new List<EnemyTemplate>();
             foreach (var preset in _allTemplates) {
                 if (preset.level == _currentLevel) _newBufferTemplates.Add(preset);
                 if (preset.level == _maxLevel && _currentLevel > _maxLevel) _newBufferTemplates.Add(preset);
             }
         }
 
-        public void UpdateCurrentLevel() {
+        private void UpdateCurrentLevel() {
             _currentLevel = Level.level;
         }
 
-        public void TryOverwriteLastBuffer() {
+        private void TryOverwriteLastBuffer() {
             if (BufferEmptyCheck() == false) _bufferTemplates = new List<EnemyTemplate>(_newBufferTemplates);
         }
 
-        public bool BufferEmptyCheck() {
+        private bool BufferEmptyCheck() {
             bool bufferEmpty = !(_newBufferTemplates.Count >= 1);
             return bufferEmpty;
         }
 
-        public void SetRandomTemplateFromBuffer() {
+        private void SetRandomTemplateFromBuffer() {
             int numEnemy = Random.Range(0, _bufferTemplates.Count);
             _currentTemplate = _bufferTemplates[numEnemy];
         }
 
-        public void ExportCurrentTemplate() {
+        private void ExportCurrentTemplate() {
             Enemy.SetTemplate(this, _currentTemplate);
         }
 
-        public void CheckMaxLevelInRangeList() {
+        private void CheckMaxLevelInRangeList() {
             foreach (var preset in _allTemplates) {
                 if (preset.level > _maxLevel) {
                     _maxLevel = preset.level;
@@ -107,7 +107,7 @@ namespace Clicker.Architecture {
             }
         }
 
-        public void LoadEnemyTemplates() {
+        private void LoadEnemyTemplates() {
             _allTemplates = new List<EnemyTemplate>(enemyListPresent.GetTemplates());
         }
     }

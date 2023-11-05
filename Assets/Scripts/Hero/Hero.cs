@@ -27,8 +27,9 @@ namespace Clicker.Architecture {
             heroInteractor.SetStats(sender, info);
         }
 
-        public static void ResetActiveHeroes(object sender) {
+        public static void ResetHeroes(object sender) {
             CheckClass();
+            heroInteractor.Reset(sender);
             DeactivateAllHeroes?.Invoke();
         }
 

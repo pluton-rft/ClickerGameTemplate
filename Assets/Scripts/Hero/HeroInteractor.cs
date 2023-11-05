@@ -18,6 +18,11 @@
             repository.attack = info.attack;
             repository.id = info.id;
             repository.rank = info.rank;
+            repository.Save();
+        }
+
+        public void Reset(object sender) {
+            repository.Reset();
         }
     }
 }

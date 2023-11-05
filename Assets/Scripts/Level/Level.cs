@@ -31,12 +31,6 @@ namespace Clicker.Architecture {
             OnLevelInitializedEvent?.Invoke();
         }
         
-        public static void AddLevel(object sender, int value) {
-            CheckClass();
-            levelInteractor.AddLevel(sender, value);
-            OnLevelChangeLevelEvent?.Invoke();
-        }
-        
         public static void AddExperience(object sender, float value) {
             CheckClass();
             levelInteractor.AddExperience(sender, value);

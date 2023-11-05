@@ -23,5 +23,14 @@ namespace Clicker.Architecture {
             PlayerPrefs.SetFloat(KEY+"ATTACK", attack);
             PlayerPrefs.SetInt(KEY+"RANK", rank);
         }
+        
+        public void Reset() {
+            PlayerPrefs.DeleteKey(KEY+"NAME");
+            PlayerPrefs.DeleteKey(KEY+"ID");
+            PlayerPrefs.DeleteKey(KEY+"ATTACK");
+            PlayerPrefs.DeleteKey(KEY+"RANK");
+            Initialize();
+            Save();
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace Clicker.Architecture {
         public float maxHealth { get; set; }
         public Sprite image { get; set; }
 
-        public float baseExperienceReward = 7770.0f;
+        public float baseExperienceReward = 777.0f;
         public float baseMoneyReward = 10000.0f;
         public float baseHealth = 200.0f;
 
