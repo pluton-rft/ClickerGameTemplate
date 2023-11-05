@@ -21,6 +21,8 @@ The project is a clicker game in which the player fights enemies, earning money 
 
 * **Interface**: The main screen displays the current currency, the player's level, and a button to attack an enemy. Below that is a scrolling menu with available heroes for purchase.
 
+![Interface image](https://downloader.disk.yandex.ru/preview/c8b424e0a333cbdc518d229034a00e67a5160ae18d5582173dd7d14949c1d5f4/654836bc/KylBk36ydLByxmqty3Q9R6bOAIRKTODUjNKZ3Ak0VX8gF6l8Z0Km0PLnyCewHo-74ILpA-WEEkVR2-vTZHQyOg%3D%3D?uid=0&filename=photo_2023-11-05_23-42-56.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=2048x2048)
+
 # Technical Details:
 
 * **Platform**: The game is developed under the WebGL platform, which allows it to run in web browsers.
