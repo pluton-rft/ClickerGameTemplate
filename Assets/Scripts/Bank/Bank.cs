@@ -22,9 +22,9 @@ namespace Clicker.Architecture {
             OnBankInitializedEvent?.Invoke();
         }
 
-        public static void IsEnoughCoins(int value) {
+        public static bool IsEnoughCoins(int value) {
             CheckClass();
-            bankInteractor.IsEnoughCoins(value);
+            return bankInteractor.IsEnoughCoins(value);
         }
 
         public static void AddCoins(object sender, int value) {
@@ -34,6 +34,7 @@ namespace Clicker.Architecture {
         }
 
         public static void Spend(object sender, int value) {
+            CheckClass();
             IsEnoughCoins(value);
             bankInteractor.Spend(sender, value);
             SendMessage();

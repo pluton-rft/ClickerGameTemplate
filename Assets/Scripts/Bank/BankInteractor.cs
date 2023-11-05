@@ -25,7 +25,7 @@ namespace Clicker.Architecture {
         }
 
         public void Spend(object sender, int value) {
-            if (IsEnoughCoins(value) && value <= 0) {
+            if (value >= 0) {
                 repository.coins -= value;
                 repository.Save();
             }
