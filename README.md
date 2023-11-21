@@ -9,6 +9,8 @@ Clicker game with progression
 # Project Description:
 The project is a clicker game in which the player fights enemies, earning money and experience. The game is oriented for mobile devices in vertical position, but it is suitable for other platforms and devices. There are no graphics as it is a template for the game and stubs are used.
 
+An example of my finished game: [Link][Game]
+
 # Main components and mechanics:
 
 * **Player**: The player starts with one hero and can click on enemies to deal damage. By killing enemies, the player gains money and experience.
@@ -21,7 +23,7 @@ The project is a clicker game in which the player fights enemies, earning money 
 
 * **Interface**: The main screen displays the current currency, the player's level, and a button to attack an enemy. Below that is a scrolling menu with available heroes for purchase.
 
-![Interface image](https://downloader.disk.yandex.ru/preview/c8b424e0a333cbdc518d229034a00e67a5160ae18d5582173dd7d14949c1d5f4/654836bc/KylBk36ydLByxmqty3Q9R6bOAIRKTODUjNKZ3Ak0VX8gF6l8Z0Km0PLnyCewHo-74ILpA-WEEkVR2-vTZHQyOg%3D%3D?uid=0&filename=photo_2023-11-05_23-42-56.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=2048x2048)
+![Interface image](https://i.ibb.co/ZzHWbwP/photo-2023-11-05-23-42-56.webp)
 
 # Technical Details:
 
@@ -35,3 +37,6 @@ The project is a clicker game in which the player fights enemies, earning money 
 
     * Adding different heroes with unique characteristics that the player can purchase.
     * Ability to save and load the game.
+
+
+[Game]: https://yandex.ru/games/app/270313?lang=ru
