@@ -39,4 +39,4 @@ An example of my finished game: [Link][Game]
     * Ability to save and load the game.
 
 
-[Game]: https://yandex.ru/games/app/270313?lang=ru
+[Game]: https://yandex.ru/games/#app=270313%3Futm_source%3Ddistrib&clid=2968906&vid=ga
