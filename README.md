@@ -23,7 +23,7 @@ An example of my finished game: [Link][Game]
 
 * **Interface**: The main screen displays the current currency, the player's level, and a button to attack an enemy. Below that is a scrolling menu with available heroes for purchase.
 
-![Interface image](https://i.ibb.co/ZzHWbwP/photo-2023-11-05-23-42-56.webp)
+   ![Interface image](https://i.ibb.co/ZzHWbwP/photo-2023-11-05-23-42-56.webp)
 
 # Technical Details:
 
@@ -31,12 +31,20 @@ An example of my finished game: [Link][Game]
 
 * **Programming Language and Engine**: The game is being developed using C# programming language and Unity Engine.
 
+* **Game architecture**: The architecture of developer [vavilichev: Lukomor][arch developer] is taken as a basis.
+
+* **Patterns**: The Object Pool pattern is used to control the number of created particles displaying damage. To simplify the work with the main resources (wallet, levels and hero) in the game is used pattern Facade
+
+* **Editor**: To edit enemies (their number and characteristics) is used custom inspector window.
+
+   ![Editor image](https://i.ibb.co/6vnFgsy/Screenshot-2023-12-12-202930.png)
+
 * **Development Time**: The game was developed within a week and a half.
 
-* **Additional functional requirements**:
+* **Additional functional features**:
 
     * Adding different heroes with unique characteristics that the player can purchase.
     * Ability to save and load the game.
 
-
+[arch developer]: https://github.com/vavilichev/Lukomor
 [Game]: https://yandex.ru/games/#app=270313%3Futm_source%3Ddistrib&clid=2968906&vid=ga
